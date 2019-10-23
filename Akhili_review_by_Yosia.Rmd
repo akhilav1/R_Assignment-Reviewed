@@ -1,0 +1,29 @@
+---
+title: "Akhil_review_by_Yosia"
+author: "Yosia"
+date: "10/21/2019"
+output: html_document
+---
+
+
+#To start your markdown document it is better to first delete this auto generated text such that you begin on a compltely empty markdown document.
+
+## Running the R-Markdown File
+I started by opening the R-Markdown file and selecting "Run -> Run All".  Below I will describe any errors that were encountered.
+
+1. The R-Markdown file could not run because of the way the datafiles were imported. This way can only work on your computer where the direcory is located. It can not download data directly from the web. It would have been better if you used this:
+
+#download.file("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2019/master/assignments/UNIX_Assignment/snp_position.txt", destfile = "./snp_position.txt")
+
+#download.file("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2019/master/assignments/UNIX_Assignment/fang_et_al_genotypes.txt", destfile = "./fang_et_al_genotypes.txt")
+# Data Inspection comments
+ Much as the error could not allow me to run your entire script to see the output i looked at the code line by line to see if it would make sense if the data importation had been done correctly and below i give comments on that.
+#1 The data inspection looks good for both fang and snp data set
+ 
+## Data processing comments
+Th two data files were processed and merged very well. The necessary groups were selected well for both maize and teosinte
+The code for manipulation of the files after merging them is not clear to me. I would have been better if you deleted out the code that did not work.
+#Visualization using ggplot
+The code for visualization looks good although i can not make a comment on the visualized out put since i did not actually look at the plots.
+## Just improve on the areas i have highlited abouve especially the one for data importatation and also improve on the curation for your code. explain more on whay you run a code. I think it will be a good job once the above comments are addressed.
+

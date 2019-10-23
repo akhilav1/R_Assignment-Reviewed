@@ -1,0 +1,18 @@
+---
+title: "Lozier_review.Rmd"
+author: "Zach Lozier"
+date: "10/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Hello! I have reviewed your `"R Assignment.Rmd"` file. Before I was able to run most of your code, I had to comment out a number of items in your initial `"R Assignment.Rmd"` file. For example, when I run your command `length(readLines("fang_et_al_genotypes.txt"))-2783`, the value returned is `0`. This is because R is evaluating the command as the expression `length(readLines("fang_et_al_genotypes.txt")) - 2783` where `length(readLines("fang_et_al_genotypes.txt"))` evaluates to 2783, but R then sees `2783 - 2783` and finally returns `0`. So, I changed this line to read `length(readLines("fang_et_al_genotypes.txt")) #-2783`. I took similar actions for your commands such as `file.size("fang_et_al_genotypes.txt", units = "B")-11051939bytes` where I changed it to `file.size("fang_et_al_genotypes.txt", units = "B") #-11051939bytes`. 
+
+Aside from these Rmd syntax issues, there were some other issues I noticed. First, your command `Join_Maize<-merge(Snp1, transposed_maize, by=NULL, all.x=TRUE)`. As you noted, the data you are creating are large. However, this is due to the fact that the objects you are merging do not share a common column. After you filtered the `fang` dataframe for maize and teosinte groups, you eliminate the "Group" and "JG_OTU" columns and create the object `col_Maize`. This particular object has the SNP_IDs as the column titles. However, when you call `colnames(col_Maize) <- c()`, you remove that information and then you transpose the data. However, you don't add a new column called "SNP_ID", so the merge funciton does not work properly. Since the new object created by your `merge()` call is not structured properly, none of the following analyses will work.
+
+Coming to your graphing functions, many of your problems from the previous section carried over. Those objects were not structured properly so your graphs weren't displayed properly either. 
+
+Altogether, I could definitely tell what you were trying to do with your code but there were some mistakes made early on that carried over to later steps which prevented you from beign able to execute everything properly. It was a great try though!
